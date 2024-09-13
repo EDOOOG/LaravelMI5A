@@ -12,7 +12,8 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        //
+         $result = Prodi::all();
+         return view('prodi.index')->with('prodi',$result);
     }
 
     /**
@@ -36,7 +37,7 @@ class ProdiController extends Controller
      */
     public function show(Prodi $prodi)
     {
-        //
+        
     }
 
     /**
