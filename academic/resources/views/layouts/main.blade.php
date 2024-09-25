@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Spica Admin</title>
   <!-- base:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="{{ url('vendors/mdi/css/materialdesignicons.min.css') }}">
+  <link rel="stylesheet" href="{{ url('vendors/css/vendor.bundle.base.css') }}">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{{ url('css/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="shortcut icon" href="{{ url('images/favicon.png') }}" />
 </head>
 <body>
   <div class="container-scroller d-flex">
@@ -31,28 +30,24 @@
           <a class="nav-link" href="index.html">
             <i class="mdi mdi-view-quilt menu-icon"></i>
             <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
           </a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="{{route('fakultas.index')}}">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('fakultas.index')}}">
             <i class="mdi mdi-bank menu-icon"></i>
             <span class="menu-title">Fakultas</span>
-            
           </a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="{{route(name: 'prodi.index')}}">
-            <i class="mdi mdi-tab menu-icon"></i>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('prodi.index')}}">
+            <i class="mdi mdi-clipboard menu-icon"></i>
             <span class="menu-title">Prodi</span>
-            
           </a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="{{route('mahasiswa.index')}}">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('mahasiswa.index')}}">
             <i class="mdi mdi-account menu-icon"></i>
             <span class="menu-title">Mahasiswa</span>
-            
           </a>
         </li>
         <li class="nav-item sidebar-category">
@@ -108,11 +103,11 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{ url('pages/samples/login.html') }}"> Login </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{ url('pages/samples/login-2.html') }}"> Login 2 </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{ url('pages/samples/register.html') }}"> Register </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{ url('pages/samples/register-2.html') }}"> Register 2 </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{ url('pages/samples/lock-screen.html') }}"> Lockscreen </a></li>
             </ul>
           </div>
         </li>
@@ -121,7 +116,7 @@
           <span></span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="docs/documentation.html">
+          <a class="nav-link" href="{{ url('docs/documentation.html') }}">
             <i class="mdi mdi-file-document-box-outline menu-icon"></i>
             <span class="menu-title">Documentation</span>
           </a>
@@ -142,8 +137,8 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="navbar-brand-wrapper">
-            <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="index.html"><img src="{{ url('images/logo.svg') }}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ url('images/logo-mini.svg') }}" alt="logo"/></a>
           </div>
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, Brandon Haynes</h4>
           <ul class="navbar-nav navbar-nav-right">
@@ -259,7 +254,7 @@
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="images/faces/face5.jpg" alt="profile"/>
+                <img src="{{ url('images/faces/face5.jpg') }}" alt="profile"/>
                 <span class="nav-profile-name">Eleanor Richardson</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -294,8 +289,7 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-            @yield('content')
-  
+          @yield('content')
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:./partials/_footer.html -->
@@ -319,21 +313,32 @@
   <!-- container-scroller -->
 
   <!-- base:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="{{ url('vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
-  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="{{ url('vendors/chart.js/Chart.min.js') }}"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
+  <script src="{{ url('js/off-canvas.js') }}"></script>
+  <script src="{{ url('js/hoverable-collapse.js') }}"></script>
+  <script src="{{ url('js/template.js') }}"></script>
   <!-- endinject -->
   <!-- plugin js for this page -->
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
+  <script src="{{ url('js/dashboard.js') }}"></script>
   <!-- End custom js for this page-->
+  {{-- sweet alert --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @session('success')
+    <script>
+      Swal.fire({
+        title: "Good Job!",
+        text: "{{ session('success') }}",
+        icon: "success"
+      });
+    </script>
+  @endsession
+      
 </body>
-
 </html>

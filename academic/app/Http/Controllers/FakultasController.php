@@ -12,12 +12,12 @@ class FakultasController extends Controller
      */
     public function index()
     {
-        //panggil model fakultas
+        //Panggil model fakultas
         $result = Fakultas::all();
         //dd($result);
 
-        //kirim data $result ke views fakultas/index.blade
-        return view('fakultas.index')->with('fakultas',$result);
+        //kirim data $result ke views fakultas index.php
+        return view('fakultas.index')->with('fakultas', $result);
     }
 
     /**
@@ -25,7 +25,7 @@ class FakultasController extends Controller
      */
     public function create()
     {
-        //
+        return view('fakultas.create');
     }
 
     /**
@@ -33,7 +33,20 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        //validasi input sblm simpan
+        $input = $request->validate( [
+            "nama" => "required|unique:fakultas",
+            "dekan" => "required",
+            "singkatan" => "required"
+        ]);
+
+        //simpan
+        Fakultas::create($input);
+
+        //redirect beserta pesan success
+        return redirect()->route('fakultas.index')->with('success',
+        $request->nama.' berhasil disimpan');
     }
 
     /**
@@ -47,9 +60,11 @@ class FakultasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Fakultas $fakultas)
+    public function edit($id)
     {
-        //
+       $fakultas = Fakultas::find($id);
+       dd($fakultas);
+       return view('fakultas.edit')->with('fakultas',$fakultas);
     }
 
     /**
