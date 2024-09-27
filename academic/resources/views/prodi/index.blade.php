@@ -20,6 +20,7 @@
             <td>{{$row['Kaprodi']}}</td>
             <td>{{$row['singkatan']}}</td>
             <td>{{$row['fakultas']['nama']}}</td>
+            <td><a href="{{route('prodi.edit',$row['id'])}}"class="btn btn-xs btn-warning">Edit</a></td>
 
         </tr>
         @endforeach
