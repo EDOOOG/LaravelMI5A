@@ -39,7 +39,7 @@ class ProdiController extends Controller
         //validasi input sblm simpan
         $input = $request->validate( [
             "nama" => "required|unique:prodis",
-            "kaprodi" => "required",
+            "Kaprodi" => "required",
             "singkatan" => "required",
             "fakultas_id"=>"required"
         ]);
@@ -99,8 +99,11 @@ class ProdiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Prodi $prodi)
+    public function destroy($id)
     {
-        //
+         $prodi = prodi::find($id);
+       // dd($fakultas);
+       $prodi->delete();
+       return redirect()->route('prodi.index')->with('success','Data prodi berhasil dihapus');
     }
 }
