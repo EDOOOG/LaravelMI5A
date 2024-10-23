@@ -1,0 +1,77 @@
+{
+	"folders": [
+		{
+			"path": "../app"
+		},
+		{
+			"path": "../config"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../database"
+		},
+		{
+			"path": "../database/migrations"
+		},
+		{
+			"path": "../database/factories"
+		},
+		{
+			"path": "../database/seeders"
+		},
+		{
+			"path": "../public"
+		},
+		{
+			"path": "../resources"
+		},
+		{
+			"path": "../resources/css"
+		},
+		{
+			"path": "../resources/js"
+		},
+		{
+			"path": "../resources/views/auth"
+		},
+		{
+			"path": "../resources/views"
+		},
+		{
+			"path": "../resources/views/components"
+		},
+		{
+			"path": "../resources/views/fakultas"
+		},
+		{
+			"path": "../resources/views/layouts"
+		},
+		{
+			"path": "../resources/views/mahasiswa"
+		},
+		{
+			"path": "../resources/views/prodi"
+		},
+		{
+			"path": "../resources/views/profile"
+		},
+		{
+			"path": "../routes"
+		},
+		{
+			"path": "../storage"
+		},
+		{
+			"path": "../tests"
+		},
+		{
+			"path": "../vendor"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
