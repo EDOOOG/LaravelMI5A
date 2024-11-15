@@ -87,4 +87,26 @@ class MahasiswaController extends Controller
        $mahasiswa->delete();
        return redirect()->route('mahasiswa.index')->with('success','Data Mahasiswa berhasil dihapus');
     }
+     public function storeMahasiswa(Request $request)
+    {
+       //dd($request);
+        //validasi input sblm simpan
+        $input = $request->validate( [
+            "npm" => "required|unique:mahasiswas",
+            "nama" => "required",
+            "tanggal_lahir" => "required",
+            "tempat_lahir"=>"required",
+            "email"=>"required",
+            "hp"=>"required",
+            "alamat"=>"required",
+            "prodi_id"=>"required"
+        ]);
+
+        //simpan
+        Mahasiswa::create($input);
+
+        //redirect beserta pesan success
+        return redirect()->route('mahasiswa.index')->with('success',
+        $request->nama.' berhasil disimpan');
+    }
 }
